@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo da Velha</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="container" id="auth-screen">
+    <h1>Jogo da Velha</h1>
+    <div class="form">
+      <input type="text" id="username" placeholder="Nome de usuário" />
+      <input type="password" id="password" placeholder="Senha" />
+      <button onclick="register()">Cadastrar</button>
+      <button onclick="login()">Entrar</button>
+      <footer>
+        <p>Desenvolvido por Diogenes Martinelli e João Pedro</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <div class="container hidden" id="game-screen">
+    <div class="header">
+      <h2>Bem-vindo, <span id="currentUser"></span>!</h2>
+      <button onclick="logout()">Sair</button>
+    </div>
+    
+    <div class="stats">
+      <p>
+        <i class="fas fa-trophy"></i> Vitórias: <span id="wins">0</span> |
+        <i class="fas fa-times-circle"></i> Derrotas: <span id="losses">0</span> |
+        <i class="fas fa-handshake"></i> Empates: <span id="draws">0</span>
+      </p>
+    </div>
+
+    <div class="modes">
+      <button onclick="startGame('local')" class="mode-btn">
+        <i class="fas fa-users"></i> Modo Local
+      </button>
+      <button onclick="startGame('pc')" class="mode-btn">
+        <i class="fas fa-robot"></i> Contra o PC
+      </button>
+      <button onclick="resetGame()" class="reset-btn">
+        <i class="fas fa-redo"></i> Reiniciar
+      </button>
+
+      <div class="difficulty hidden" id="difficulty-options">
+        <h3>Dificuldade:</h3>
+        <div class="difficulty-buttons">
+          <button onclick="setDifficulty('facil')" class="difficulty-btn">
+            <i class="fas fa-star"></i> Fácil
+          </button>
+          <button onclick="setDifficulty('medio')" class="difficulty-btn">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i> Médio
+          </button>
+          <button onclick="setDifficulty('dificil')" class="difficulty-btn">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> Difícil
+          </button>
+          <button onclick="setDifficulty('impossivel')" class="difficulty-btn">
+            <i class="fas fa-skull"></i> Impossível
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="board" id="board"></div>
+    <div class="status" id="status"></div>
+    <footer>
+      <p>Desenvolvido por Diogenes Martinelli e João Pedro</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
